@@ -11,5 +11,8 @@ export default Ember.Object.extend({
   // multipleChoice, price, number, email, link
   // section
   // ...
-  type: null
+  type: null,
+
+  // field custom value
+  value:  null
 });

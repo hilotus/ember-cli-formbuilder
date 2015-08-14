@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import ModelTypeMixin from 'ember-cli-formbuilder/mixins/model-type';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ModelTypeMixin, {
   classNameBindings: [':fb-field-wrapper', 'typeClass', 'isSelected:selected', 'model.wholeLine:whole-line'],
 
   model: null,
@@ -16,10 +17,6 @@ export default Ember.Component.extend({
 
   title: Ember.computed('model.displayName', function () {
     return this.get('model.displayName') || 'Display Name';
-  }),
-
-  isText: Ember.computed('model.type', function () {
-    return this.get('model.type') === 'text';
   }),
 
   actions: {

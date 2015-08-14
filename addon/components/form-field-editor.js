@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import ModelTypeMixin from 'ember-cli-formbuilder/mixins/model-type';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ModelTypeMixin, {
   classNames: ['fb-edit-field-wrapper'],
 
   model: null,
