@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Object.extend({
+var Field = Ember.Object.extend({
   // unique
   name: null,
 
@@ -11,3 +11,9 @@ export default Ember.Object.extend({
   // ...
   type: 'text'
 });
+
+Field.reopenClass({
+  generate: function(fieldType) {
+    return this.create({type: fieldType});
+  }
+})

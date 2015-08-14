@@ -1,3 +1,3 @@
-import FormBuilder from 'ember-cli-formbuild/components/form-builder';
+import FormBuilder from 'ember-cli-formbuilder/components/form-builder';
 
 export default FormBuilder;
