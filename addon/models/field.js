@@ -1,19 +1,15 @@
 import Ember from 'ember';
 
-var Field = Ember.Object.extend({
-  // unique
-  name: null,
-
+export default Ember.Object.extend({
+  name: null,  // unique
+  description: null,
   displayName: null,
+  required: false,
+  wholeLine: false,
 
-  // text, date, time, checkbox,
-  // website, price, number, email
+  // text, paragraph, date, time, singleChoice,
+  // multipleChoice, price, number, email, link
+  // section
   // ...
-  type: 'text'
+  type: null
 });
-
-Field.reopenClass({
-  generate: function(fieldType) {
-    return this.create({type: fieldType});
-  }
-})

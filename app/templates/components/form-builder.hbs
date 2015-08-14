@@ -6,66 +6,48 @@
   </ul>
   <div class="fb-tab-content">
     <div class="fb-tab-pane {{if isEditFormTag 'active'}}">
-
+      <div class="form-group">
+        {{input class="form-control" value=model.name}}
+      </div>
+      <div class="form-group">
+        {{textarea class="form-control" value=model.description}}
+      </div>
     </div>
 
     <div class="fb-tab-pane {{if isAddNewFieldTag 'active'}}">
       <div class="fb-add-field-types">
         <div class="section">
-          <a {{action 'addField' 'text'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-font"></span></span> Text
-          </a>
-          <a {{action 'addField' 'paragraph'}} class="fb-button ui-draggable">
-            <span class="symbol">¶</span> Paragraph
-          </a>
-          <a {{action 'addField' 'checkbox'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-square-o"></span></span> Checkboxes
-          </a>
-          <a {{action 'addField' 'radio'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-circle-o"></span></span> Multiple Choice
-          </a>
-          <a {{action 'addField' 'date'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-calendar"></span></span> Date
-          </a>
-          <a {{action 'addField' 'dropdown'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-caret-down"></span></span> Dropdown
-          </a>
-          <a {{action 'addField' 'time'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-clock-o"></span></span> Time
-          </a>
-          <a {{action 'addField' 'number'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-number">123</span></span> Number
-          </a>
-          <a {{action 'addField' 'website'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-link"></span></span> Website
-          </a>
-          <a {{action 'addField' 'email'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-envelope-o"></span></span> Email
-          </a>
-          <a {{action 'addField' 'price'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-usd"></span></span> Price
-          </a>
-          <a {{action 'addField' 'address'}} class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-home"></span></span> Address
-          </a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'text'}}><i class="fa fa-font"></i> Text</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'paragraph'}}>¶ Paragraph</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'single-choice'}}><i class="fa fa-square-o"></i> Single Choice</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'multiple-choice'}}><i class="fa fa-circle-o"></i> Multiple Choice</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'date'}}><i class="fa fa-calendar"></i> Date</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'time'}}><i class="fa fa-clock-o"></i> Time</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'Number'}}>123 Number</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'price'}}><i class="fa fa-usd"></i> Price</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'email'}}><i class="fa fa-envelope-o"></i> Email</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'link'}}><i class="fa fa-link"></i> Link</a>
         </div>
         <div class="section">
-          <a data-field-type="section_break" class="fb-button ui-draggable">
-            <span class="symbol"><span class="fa fa-minus"></span></span> Section Break
-          </a>
+          <a role="button" class="btn btn-primary" {{action 'addField' 'section'}}><i class="fa fa-minus"></i> Section</a>
         </div>
       </div>
     </div>
 
     <div class="fb-tab-pane {{if isEditFieldTag 'active'}}">
-      <div class="fb-edit-field-wrapper"></div>
+      {{#if field}}
+        {{form-field-editor model=field targetObject=this}}
+      {{/if}}
     </div>
 
   </div>
 </div>
 
 <div class="fb-right">
-
+  <div class="fb-no-response-fields hidden">No response fields</div>
+  {{#each model.fields as |field|}}
+    {{form-field-display model=field targetObject=this}}
+  {{/each}}
 </div>
 
 <div class="fb-clear"></div>

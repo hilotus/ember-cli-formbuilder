@@ -1,0 +1,11 @@
+<div class="subtemplate-wrapper">
+  {{!-- <div class="cover" {{action 'select' model target=targetObject}}></div> --}}
+  <div class="title">{{title}} {{#if model.required}}<abbr title="required">*</abbr>{{/if}}</div>
+  {{#if isText}}
+    {{input value=model.defaultValue}}
+  {{/if}}
+  <div class="actions-wrapper">
+    <a class="btn btn-success" title="Duplicate Field"><i class="fa fa-plus-circle"></i></a>
+    <a class="btn btn-danger" title="Remove Field" {{action 'delete' model target=targetObject}}><i class="fa fa-minus-circle"></i></a>
+  </div>
+</div>
