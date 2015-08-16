@@ -1,0 +1,6 @@
+{{#each model as |option|}}
+  <div class="form-group-sm">
+    <input type="checkbox" checked={{option.checked}}> {{input value=option.label}} <i class="fa fa-minus-circle del" {{action 'delOpt' option}}></i>
+  </div>
+{{/each}}
+<a class="btn btn-success" {{action 'addOption'}}>Add option</a>

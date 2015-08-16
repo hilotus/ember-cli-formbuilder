@@ -1,5 +1,11 @@
 import Field from '../field';
 
 export default Field.extend({
-  defaultValue: null
+  /*
+    {
+      checked: false,
+      label: 'xxx'
+    }
+  */
+  options: []
 });

@@ -12,9 +12,24 @@
   {{else if isNumber}}
     {{input type="number"}}
   {{else if isPrice}}
-    {{input type="number"}}
+    <div class="input-group">
+      <div class="input-group-addon"><i class="{{model.currencyIcon}}"></i></div>
+      {{input type="text" class="form-control"}}
+    </div>
+  {{else if isSingleChoice}}
+    {{#each model.options as |option|}}
+      <div class="form-group-sm">
+        <input type="radio" checked={{option.checked}}> {{option.label}}
+      </div>
+    {{/each}}
+  {{else if isMultipleChoice}}
+    {{#each model.options as |option|}}
+      <div class="form-group-sm">
+        <input type="checkbox" checked={{option.checked}}> {{option.label}}
+      </div>
+    {{/each}}
   {{/if}}
   <div class="actions-wrapper">
-    <i role="button" class="fa fa-minus-circle" {{action 'delete' model target=targetObject}}></i>
+    <i role="button" class="fa fa-minus-circle del" {{action 'delete' model target=targetObject}}></i>
   </div>
 </div>

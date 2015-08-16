@@ -41,7 +41,7 @@ export default Ember.Component.extend({
         throw new Ember.Error(fieldType + ' is not supported.');
       }
       var field = Field.create({name: Ember.uuid(), type: fieldType});
-      // this.set('field', field);
+      this.set('field', field);
       this.get('model.fields').pushObject(field);
     },
 

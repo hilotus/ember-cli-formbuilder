@@ -17,11 +17,29 @@
   {{input id="fb-wholeLine" type="checkbox" checked=model.wholeLine}} <label for="fb-wholeLine">Whole line</label>
 </div>
 
-<div class="fb-edit-section-header">Options</div>
-<div class="form-group">
-  {{#if isText}}
+{{#if isText}}
+  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-group">
     {{input class="form-control" value=model.defaultValue}}
-  {{else if isParagraph}}
+  </div>
+{{else if isParagraph}}
+  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-group">
     {{textarea class="form-control" value=model.defaultValue}}
-  {{/if}}
-</div>
+  </div>
+{{else if isPrice}}
+  <div class="fb-edit-section-header">Currency</div>
+  <div class="form-group">
+    {{fb-select class="form-control" model=model.currencies selected=model.selectedCurrency}}
+  </div>
+{{else if isSingleChoice}}
+  <div class="fb-edit-section-header">Options</div>
+  <div class="form-group">
+    {{fb-single-choice model=model.options}}
+  </div>
+{{else if isMultipleChoice}}
+  <div class="fb-edit-section-header">Options</div>
+  <div class="form-group">
+    {{fb-multiple-choice model=model.options}}
+  </div>
+{{/if}}
