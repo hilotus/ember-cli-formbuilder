@@ -34,7 +34,9 @@
   "keywords": [
     "ember-addon"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "ember-cli-datetimepicker": "git+ssh://git@github.com/hilotus/ember-cli-datetimepicker.git"
+  },
   "ember-addon": {
     "configPath": "tests/dummy/config"
   }

@@ -42,4 +42,14 @@
   <div class="form-group">
     {{fb-multiple-choice model=model.options}}
   </div>
+{{else if isDate}}
+  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-group">
+    {{date-picker model=model.defaultValue buttonClass="btn btn-success" format="yyyy-mm-dd"}}
+  </div>
+{{else if isTime}}
+  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-group">
+    {{time-picker model=model.defaultValue class="form-control"}}
+  </div>
 {{/if}}

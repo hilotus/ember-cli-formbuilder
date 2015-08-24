@@ -28,6 +28,10 @@
         <input type="checkbox" checked={{option.checked}}> {{option.label}}
       </div>
     {{/each}}
+  {{else if isDate}}
+    {{input type="text" class="form-control" placeholder="Date" value=model.defaultValue}}
+  {{else if isTime}}
+    {{input type="text" class="form-control" placeholder="Time" value=model.defaultValue}}
   {{/if}}
   <div class="actions-wrapper">
     <i role="button" class="fa fa-minus-circle del" {{action 'delete' model target=targetObject}}></i>
