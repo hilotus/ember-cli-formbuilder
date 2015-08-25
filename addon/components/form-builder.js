@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Form from 'ember-cli-formbuilder/models/form';
 
 export default Ember.Component.extend({
   classNames: ['fb-main'],
@@ -27,7 +28,7 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    toogleTag: function (tag) {
+    toggleTag: function (tag) {
       this.set('tag', tag);
     },
 
@@ -36,11 +37,7 @@ export default Ember.Component.extend({
         throw new Ember.Error('model is null.');
       }
 
-      var Field = this.container.lookup('form-field-model:' + fieldType);
-      if (!Field) {
-        throw new Ember.Error(fieldType + ' is not supported.');
-      }
-      var field = Field.create({name: Ember.uuid(), type: fieldType});
+      var field = Form.createField(fieldType, this.container);
       this.set('field', field);
       this.get('model.fields').pushObject(field);
     },

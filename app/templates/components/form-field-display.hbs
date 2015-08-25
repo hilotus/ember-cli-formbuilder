@@ -6,15 +6,15 @@
   {{else if isParagraph}}
     {{textarea value=model.defaultValue}}
   {{else if isLink}}
-    {{input type="url" placeholder="http://"}}
+    {{input placeholder="http://"}}
   {{else if isEmail}}
-    {{input type="email"}}
+    {{input type="email" placeholder="Email"}}
   {{else if isNumber}}
-    {{input type="number"}}
+    {{input placeholder="Number"}}
   {{else if isPrice}}
     <div class="input-group">
       <div class="input-group-addon"><i class="{{model.currencyIcon}}"></i></div>
-      {{input type="text" class="form-control"}}
+      {{input type="text"}}
     </div>
   {{else if isSingleChoice}}
     {{#each model.options as |option|}}
@@ -29,9 +29,9 @@
       </div>
     {{/each}}
   {{else if isDate}}
-    {{input type="text" class="form-control" placeholder="Date" value=model.defaultValue}}
+    {{input type="text" placeholder="Date" value=model.defaultValue}}
   {{else if isTime}}
-    {{input type="text" class="form-control" placeholder="Time" value=model.defaultValue}}
+    {{input type="text" placeholder="Time" value=model.defaultValue}}
   {{/if}}
   <div class="actions-wrapper">
     <i role="button" class="fa fa-minus-circle del" {{action 'delete' model target=targetObject}}></i>
