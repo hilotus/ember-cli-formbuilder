@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import Serializable from 'ember-cli-formbuilder/mixins/serializable';
 
-var Form = Ember.Object.extend({
+var Form = Ember.Object.extend(Serializable, {
   name: null,
   description: null,
   fields: []
