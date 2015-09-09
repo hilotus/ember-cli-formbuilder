@@ -10,12 +10,14 @@
 <div class="form-group">
   {{textarea class="form-control" value=model.description placeholder='Description'}}
 </div>
-<div class="form-group">
-  {{input id="fb-required" type="checkbox" checked=model.required}} <label for="fb-required">Required</label>
-</div>
-<div class="form-group">
-  {{input id="fb-wholeLine" type="checkbox" checked=model.wholeLine}} <label for="fb-wholeLine">Whole line</label>
-</div>
+{{#unless isSection}}
+  <div class="form-group">
+    {{input id="fb-required" type="checkbox" checked=model.required}} <label for="fb-required">Required</label>
+  </div>
+  <div class="form-group">
+    {{input id="fb-wholeLine" type="checkbox" checked=model.wholeLine}} <label for="fb-wholeLine">Whole line</label>
+  </div>
+{{/unless}}
 
 {{#if isText}}
   <div class="fb-edit-section-header">Default Value</div>

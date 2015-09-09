@@ -10,5 +10,6 @@ export default Ember.Mixin.create({
   isSingleChoice: Ember.computed.equal('model.type', 'single-choice'),
   isMultipleChoice: Ember.computed.equal('model.type', 'multiple-choice'),
   isDate: Ember.computed.equal('model.type', 'date'),
-  isTime: Ember.computed.equal('model.type', 'time')
+  isTime: Ember.computed.equal('model.type', 'time'),
+  isSection: Ember.computed.equal('model.type', 'section')
 });

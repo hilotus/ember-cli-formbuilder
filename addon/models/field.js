@@ -12,5 +12,7 @@ export default Ember.Object.extend(Serializable, {
   // multipleChoice, price, number, email, link
   // section
   // ...
-  type: null
+  type: null,
+
+  isSection: Ember.computed.equal('type', 'section')
 });

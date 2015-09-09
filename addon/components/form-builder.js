@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import Form from 'ember-cli-formbuilder/models/form';
 
 export default Ember.Component.extend({
   classNames: ['fb-main'],
@@ -37,9 +36,22 @@ export default Ember.Component.extend({
         throw new Ember.Error('model is null.');
       }
 
-      var field = Form.createField(fieldType, this.container);
-      this.set('field', field);
-      this.get('model.fields').pushObject(field);
+      var Field = this.container.lookupFactory('form-field-model:' + fieldType);
+      if (!Field) {
+        throw new Ember.Error(fieldType + ' is not supported.');
+      }
+
+      var field = Field.create({name: Ember.uuid(), type: fieldType});
+
+      if (this.get('field.isSection')) {  // section field
+        this.get('field.fields').pushObject(field);
+      } else {
+        if (fieldType === 'section') {
+          field.set('fields', []);
+        }
+        this.get('model.fields').pushObject(field);
+      }
+      // this.set('field', field);
     },
 
     select: function (field) {

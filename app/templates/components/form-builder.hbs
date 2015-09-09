@@ -29,7 +29,9 @@
           <a role="button" class="btn btn-default" {{action 'addField' 'link'}}><i class="fa fa-link"></i> Link</a>
         </div>
         <div class="section">
-          <a role="button" class="btn btn-primary" {{action 'addField' 'section'}}><i class="fa fa-minus"></i> Section</a>
+          {{#unless field.isSection}}
+            <a role="button" class="btn btn-primary" {{action 'addField' 'section'}}><i class="fa fa-minus"></i> Section</a>
+          {{/unless}}
         </div>
       </div>
     </div>
@@ -46,7 +48,11 @@
 <div class="fb-right">
   <div class="fb-no-response-fields hidden">No response fields</div>
   {{#each model.fields as |field|}}
-    {{form-field-display model=field targetObject=this}}
+    {{#if field.isSection}}
+      {{form-field-display-section model=field targetObject=this}}
+    {{else}}
+      {{form-field-display model=field targetObject=this}}
+    {{/if}}
   {{/each}}
 </div>
 

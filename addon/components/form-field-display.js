@@ -11,8 +11,12 @@ export default Ember.Component.extend(ModelTypeMixin, {
     return 'form-field-' + this.get('model.type');
   }),
 
-  isSelected: Ember.computed('model.name', 'targetObject.field.name', function () {
-    return Ember.isEqual(this.get('model.name'), this.get('targetObject.field.name'));
+  isSelected: Ember.computed('model.name', 'targetObject.field.name', 'targetObject.targetObject.field.name', function () {
+    if (this.get('targetObject.model.isSection')) {  // field in section
+      return Ember.isEqual(this.get('model.name'), this.get('targetObject.targetObject.field.name'));
+    } else {
+      return Ember.isEqual(this.get('model.name'), this.get('targetObject.field.name'));
+    }
   }),
 
   title: Ember.computed('model.displayName', function () {
