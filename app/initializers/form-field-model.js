@@ -9,6 +9,7 @@ import PriceField from 'ember-cli-formbuilder/models/fields/price-field';
 import EmailField from 'ember-cli-formbuilder/models/fields/email-field';
 import LinkField from 'ember-cli-formbuilder/models/fields/link-field';
 import SectionField from 'ember-cli-formbuilder/models/fields/section-field';
+import LabelField from 'ember-cli-formbuilder/models/fields/label-field';
 
 export default {
   name: 'form-field',
@@ -25,5 +26,6 @@ export default {
     registry.register('form-field-model:email', EmailField, { instantiate: false, singleton: true });
     registry.register('form-field-model:link', LinkField, { instantiate: false, singleton: true });
     registry.register('form-field-model:section', SectionField, { instantiate: false, singleton: true });
+    registry.register('form-field-model:label', LabelField, { instantiate: false, singleton: true });
   }
 };

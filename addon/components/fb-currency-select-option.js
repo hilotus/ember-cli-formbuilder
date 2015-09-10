@@ -5,7 +5,10 @@ export default Ember.Component.extend({
   attributeBindings: ['value', 'isSelected:selected'],
 
   selected: null,
+
+  // option text
   displayValue: null,
+  // option value
   value: null,
 
   isSelected: Ember.computed('selected', 'value', function () {

@@ -3,8 +3,8 @@ import Serializable from 'ember-cli-formbuilder/mixins/serializable';
 
 export default Ember.Object.extend(Serializable, {
   name: null,  // unique
+  title: null,
   description: null,
-  displayName: null,
   required: false,
   wholeLine: false,
 

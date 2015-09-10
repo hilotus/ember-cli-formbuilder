@@ -10,8 +10,8 @@ export default Ember.Component.extend({
     return Ember.isEqual(this.get('model.name'), this.get('targetObject.field.name'));
   }),
 
-  title: Ember.computed('model.displayName', function () {
-    return this.get('model.displayName') || 'Display Name';
+  title: Ember.computed('model.title', function () {
+    return this.get('model.title') || 'Title';
   }),
 
   actions: {

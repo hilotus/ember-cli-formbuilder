@@ -13,8 +13,8 @@
     {{input placeholder="Number"}}
   {{else if isPrice}}
     <div class="input-group">
-      <div class="input-group-addon"><i class="{{model.currencyIcon}}"></i></div>
-      {{input type="text"}}
+      <div class="input-group-addon"><i class="{{currencyIcon}}"></i></div>
+      {{input type="text" class="form-control"}}
     </div>
   {{else if isSingleChoice}}
     {{#each model.options as |option|}}

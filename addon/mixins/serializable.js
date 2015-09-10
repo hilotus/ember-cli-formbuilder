@@ -8,7 +8,7 @@ export default Ember.Mixin.create({
       if (key === 'isInstance' ||
         key === 'isDestroyed' ||
         key === 'isDestroying' ||
-        key === 'isSection' ||
+        key === 'isSection' ||  // skip isSection in field class.
         key === 'concatenatedProperties' ||
         key === '_debugContainerKey' ||
         key === 'container' ||

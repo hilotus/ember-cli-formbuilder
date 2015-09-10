@@ -11,5 +11,6 @@ export default Ember.Mixin.create({
   isMultipleChoice: Ember.computed.equal('model.type', 'multiple-choice'),
   isDate: Ember.computed.equal('model.type', 'date'),
   isTime: Ember.computed.equal('model.type', 'time'),
-  isSection: Ember.computed.equal('model.type', 'section')
+  isSection: Ember.computed.equal('model.type', 'section'),
+  isLabel: Ember.computed.equal('model.type', 'label')
 });

@@ -5,7 +5,7 @@
 
 <div class="fb-edit-section-header">Label</div>
 <div class="form-group">
-  {{input class="form-control" value=model.displayName placeholder='Display Name'}}
+  {{input class="form-control" value=model.title placeholder='Title'}}
 </div>
 <div class="form-group">
   {{textarea class="form-control" value=model.description placeholder='Description'}}
@@ -32,7 +32,7 @@
 {{else if isPrice}}
   <div class="fb-edit-section-header">Currency</div>
   <div class="form-group">
-    {{fb-select class="form-control" model=model.currencies selected=model.selectedCurrency}}
+    {{fb-currency-select class="form-control" model=currencies selected=model.selectedCurrency}}
   </div>
 {{else if isSingleChoice}}
   <div class="fb-edit-section-header">Options</div>

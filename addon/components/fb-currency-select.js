@@ -5,7 +5,12 @@ export default Ember.Component.extend({
   classNameBindings: ['class'],
   'class': null,
   model: null,
+
+  // selected option
   selected: null,
+
+  // price field
+  currencies: ['usd', 'cny', 'eur', 'gbp'],
 
   setup: function () {
     Ember.run.schedule('afterRender', this, function () {
