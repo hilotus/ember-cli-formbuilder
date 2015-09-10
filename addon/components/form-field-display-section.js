@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNameBindings: [':fb-field-wrapper', ':whole-line', 'isSelected:selected'],
+  classNameBindings: [':fb-field-wrapper', ':form-foeld-section', ':whole-line', 'isSelected:selected'],
 
   model: null,
   targetObject: null,
