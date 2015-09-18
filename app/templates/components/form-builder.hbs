@@ -46,8 +46,7 @@
   </div>
 </div>
 
-<div class="fb-right">
-  <div class="fb-no-response-fields hidden">No response fields</div>
+<div class="fb-right form-field-collection">
   {{#each model.fields as |field|}}
     {{#if field.isSection}}
       {{form-field-display-section model=field targetObject=this}}

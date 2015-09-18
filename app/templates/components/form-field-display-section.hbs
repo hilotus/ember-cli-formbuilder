@@ -3,7 +3,9 @@
   <div class="actions-wrapper">
     <i role="button" class="fa fa-minus-circle del" {{action 'delete' model target=targetObject}}></i>
   </div>
-  {{#each model.fields as |field|}}
-    {{form-field-display model=field targetObject=this}}
-  {{/each}}
+  <div class="form-field-collection">
+    {{#each model.fields as |field|}}
+      {{form-field-display model=field targetObject=this}}
+    {{/each}}
+  </div>
 </div>

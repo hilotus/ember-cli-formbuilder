@@ -7,6 +7,9 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
 
+    // js
+    app.import(app.bowerDirectory + '/jquery-ui-sortable/jquery-ui-sortable.js');
+
     // css
     app.import(app.bowerDirectory + '/coreweb-css/css/colorful.css');
     app.import(app.bowerDirectory + '/coreweb-css/css/formbuilder.css');

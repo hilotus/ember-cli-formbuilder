@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import Droppable from 'ember-cli-formbuilder/mixins/droppable';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(Droppable, {
   classNames: ['fb-main'],
 
   model: null,  // form model

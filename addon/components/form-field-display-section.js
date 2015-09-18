@@ -1,7 +1,8 @@
 import Ember from 'ember';
+import Droppable from 'ember-cli-formbuilder/mixins/droppable';
 
-export default Ember.Component.extend({
-  classNameBindings: [':fb-field-wrapper', ':form-foeld-section', ':whole-line', 'isSelected:selected'],
+export default Ember.Component.extend(Droppable, {
+  classNameBindings: [':fb-field-wrapper', ':form-field-section', ':whole-line', 'isSelected:selected'],
 
   model: null,
   targetObject: null,

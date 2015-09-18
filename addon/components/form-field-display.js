@@ -26,8 +26,5 @@ export default Ember.Component.extend(ModelTypeMixin, {
   // currency field with font awesome Icon
   currencyIcon: Ember.computed('model.selectedCurrency', function () {
     return 'fa ' + 'fa-' + this.get('model.selectedCurrency');
-  }),
-
-  actions: {
-  }
+  })
 });
