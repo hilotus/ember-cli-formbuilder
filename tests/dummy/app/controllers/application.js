@@ -7,7 +7,9 @@ export default Ember.Controller.extend({
   }.property(),
 
   modelChanged: Ember.observer('model.*', 'model.fields.[].*', function () {
-    var json = this.get('model').serialize();
-    console.log(JSON.stringify(json));
+    if (this.get('model')) {
+      var json = this.get('model').serialize();
+      console.log(JSON.stringify(json));
+    }
   })
 });

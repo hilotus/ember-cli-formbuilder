@@ -47,13 +47,33 @@
 </div>
 
 <div class="fb-right form-field-collection">
-  {{#each model.fields as |field|}}
-    {{#if field.isSection}}
-      {{form-field-display-section model=field targetObject=this}}
-    {{else}}
-      {{form-field-display model=field targetObject=this}}
-    {{/if}}
-  {{/each}}
+  {{#if sortPreview}}
+    {{#sortable-group model=model onChange="reorderItems" as |group|}}
+      {{#each model.fields as |field|}}
+        {{#sortable-item model=field group=group handle=".fb-field-wrapper"}}
+          {{#if field.isSection}}
+            {{form-field-display-section model=field targetObject=this}}
+          {{else}}
+            {{form-field-display model=field targetObject=this}}
+          {{/if}}
+        {{/sortable-item}}
+      {{/each}}
+    {{/sortable-group}}
+  {{else}}
+    {{#each model.fields as |field|}}
+      {{#if field.isSection}}
+        {{form-field-display-section model=field targetObject=this}}
+      {{else}}
+        {{form-field-display model=field targetObject=this}}
+      {{/if}}
+    {{/each}}
+  {{/if}}
 </div>
 
 <div class="fb-clear"></div>
+
+<div class="fb-main-top-bar">
+  <div class="form-control">
+    {{input type="checkbox" checked=sortPreview}} Sort Preview
+  </div>
+</div>

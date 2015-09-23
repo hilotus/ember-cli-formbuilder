@@ -22,14 +22,19 @@ export default Ember.Mixin.create({
           var newOrder = Ember.$(this).sortable('toArray'),
             view = Ember.$(this).data('view'),
             oldOrder = view.get('oldOrder'),
-            fields = view.get('model.fields'),
-            sortedFields, oldIndex;
+            model = view.get('model'),
+            oldIndex;
 
-          sortedFields = newOrder.map(function (eid) {
-            oldIndex = oldOrder.indexOf(eid);
-            return fields.get(oldIndex);
-          });
-          view.set('model.fields', sortedFields);
+          model.set('fields',
+            newOrder.map(
+              function (eid) {
+                oldIndex = oldOrder.indexOf(eid);
+                return model.get('fields').get(oldIndex);
+              }
+            )
+          );
+
+          view.set('model', model);
         }
       }).data('view', this);
     });

@@ -1,11 +1,13 @@
 import Ember from 'ember';
-import Droppable from 'ember-cli-formbuilder/mixins/droppable';
 
-export default Ember.Component.extend(Droppable, {
+export default Ember.Component.extend({
   classNames: ['fb-main'],
 
   model: null,  // form model
+
   field: null,  // selected field
+
+  sortPreview: false,  // sort view
 
   tag: 'editForm',  // left tabs
 
@@ -70,6 +72,10 @@ export default Ember.Component.extend(Droppable, {
 
       this.set('field', null);
       this.get('model.fields').removeObject(field);
+    },
+
+    reorderItems: function (groupModel, itemModels) {
+      groupModel.set('fields', itemModels);
     }
   }
 });
