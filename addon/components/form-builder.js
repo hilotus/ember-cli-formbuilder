@@ -74,8 +74,8 @@ export default Ember.Component.extend({
       this.get('model.fields').removeObject(field);
     },
 
-    reorderItems: function (groupModel, itemModels) {
-      groupModel.set('fields', itemModels);
+    reorderItems: function (itemModels) {
+      this.set('model.fields', itemModels);
     }
   }
 });

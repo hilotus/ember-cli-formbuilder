@@ -1,11 +1,30 @@
 <div class="subtemplate-wrapper">
   <div class="title" {{action 'select' model target=targetObject}}>{{title}}</div>
+  <div class="top-bar">
+    <div class="form-control">
+      <label>{{input type="checkbox" checked=sortPreview}} Sort Preview</label>
+    </div>
+  </div>
   <div class="actions-wrapper">
     <i role="button" class="fa fa-minus-circle del" {{action 'delete' model target=targetObject}}></i>
   </div>
   <div class="form-field-collection">
-    {{#each model.fields as |field|}}
-      {{form-field-display model=field targetObject=this}}
-    {{/each}}
+    {{#if sortPreview}}
+      {{#sortable-group onChange="reorderItems" as |group|}}
+        {{#each model.fields as |field|}}
+          {{#sortable-item model=field group=group handle=".fb-field-wrapper"}}
+            {{#if field.isSection}}
+              {{form-field-display-section model=field targetObject=this}}
+            {{else}}
+              {{form-field-display model=field targetObject=this}}
+            {{/if}}
+          {{/sortable-item}}
+        {{/each}}
+      {{/sortable-group}}
+    {{else}}
+      {{#each model.fields as |field|}}
+        {{form-field-display model=field targetObject=this}}
+      {{/each}}
+    {{/if}}
   </div>
 </div>

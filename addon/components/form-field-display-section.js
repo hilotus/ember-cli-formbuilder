@@ -6,6 +6,7 @@ export default Ember.Component.extend({
 
   model: null,
   targetObject: null,
+  sortPreview: false,
 
   isSelected: Ember.computed('model.name', 'targetObject.field.name', function () {
     return Ember.isEqual(this.get('model.name'), this.get('targetObject.field.name'));
@@ -31,6 +32,10 @@ export default Ember.Component.extend({
 
       this.set('field', null);
       this.get('model.fields').removeObject(field);
+    },
+
+    reorderItems: function (itemModels) {
+      this.set('model.fields', itemModels);
     }
   }
 });

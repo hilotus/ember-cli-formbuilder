@@ -48,7 +48,7 @@
 
 <div class="fb-right form-field-collection">
   {{#if sortPreview}}
-    {{#sortable-group model=model onChange="reorderItems" as |group|}}
+    {{#sortable-group onChange="reorderItems" as |group|}}
       {{#each model.fields as |field|}}
         {{#sortable-item model=field group=group handle=".fb-field-wrapper"}}
           {{#if field.isSection}}
@@ -74,6 +74,6 @@
 
 <div class="fb-main-top-bar">
   <div class="form-control">
-    {{input type="checkbox" checked=sortPreview}} Sort Preview
+    <label>{{input type="checkbox" checked=sortPreview}} Sort Preview</label>
   </div>
 </div>
