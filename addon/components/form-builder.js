@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['fb-main'],
+  classNames: ['form-builder-main'],
 
   model: null,  // form model
 

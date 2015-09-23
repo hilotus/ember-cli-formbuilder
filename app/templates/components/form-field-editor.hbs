@@ -1,9 +1,9 @@
-<div class="fb-field-label">
+<div class="form-builder-field-label">
   <code class="field-name">{{model.name}}</code>
   <code class="field-type">{{model.type}}</code>
 </div>
 
-<div class="fb-edit-section-header">Label</div>
+<div class="form-builder-edit-section-header">Label</div>
 <div class="form-group">
   {{input class="form-control" value=model.title placeholder='Title'}}
 </div>
@@ -12,45 +12,45 @@
 </div>
 {{#unless isSection}}
   <div class="form-group">
-    {{input id="fb-required" type="checkbox" checked=model.required}} <label for="fb-required">Required</label>
+    {{input id="form-builder-required" type="checkbox" checked=model.required}} <label for="form-builder-required">Required</label>
   </div>
   <div class="form-group">
-    {{input id="fb-wholeLine" type="checkbox" checked=model.wholeLine}} <label for="fb-wholeLine">Whole line</label>
+    {{input id="form-builder-wholeLine" type="checkbox" checked=model.wholeLine}} <label for="form-builder-wholeLine">Whole line</label>
   </div>
 {{/unless}}
 
 {{#if isText}}
-  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">Default Value</div>
   <div class="form-group">
     {{input class="form-control" value=model.defaultValue}}
   </div>
 {{else if isParagraph}}
-  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">Default Value</div>
   <div class="form-group">
     {{textarea class="form-control" value=model.defaultValue}}
   </div>
 {{else if isPrice}}
-  <div class="fb-edit-section-header">Currency</div>
+  <div class="form-builder-edit-section-header">Currency</div>
   <div class="form-group">
-    {{fb-currency-select class="form-control" model=currencies selected=model.selectedCurrency}}
+    {{form-builder-currency-select class="form-control" model=currencies selected=model.selectedCurrency}}
   </div>
 {{else if isSingleChoice}}
-  <div class="fb-edit-section-header">Options</div>
+  <div class="form-builder-edit-section-header">Options</div>
   <div class="form-group">
-    {{fb-single-choice model=model.options}}
+    {{form-builder-single-choice model=model.options}}
   </div>
 {{else if isMultipleChoice}}
-  <div class="fb-edit-section-header">Options</div>
+  <div class="form-builder-edit-section-header">Options</div>
   <div class="form-group">
-    {{fb-multiple-choice model=model.options}}
+    {{form-builder-multiple-choice model=model.options}}
   </div>
 {{else if isDate}}
-  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">Default Value</div>
   <div class="form-group">
     {{date-picker model=model.defaultValue buttonClass="btn btn-success" format="yyyy-mm-dd"}}
   </div>
 {{else if isTime}}
-  <div class="fb-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">Default Value</div>
   <div class="form-group">
     {{time-picker model=model.defaultValue class="form-control"}}
   </div>

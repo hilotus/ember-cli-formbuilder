@@ -2,7 +2,7 @@ import Ember from 'ember';
 // import Sortable from 'ember-cli-formbuilder/mixins/sortable';
 
 export default Ember.Component.extend({
-  classNameBindings: [':fb-field-wrapper', ':form-field-section', ':whole-line', 'isSelected:selected'],
+  classNameBindings: [':form-builder-field-wrapper', ':form-field-section', ':whole-line', 'isSelected:selected'],
 
   model: null,
   targetObject: null,

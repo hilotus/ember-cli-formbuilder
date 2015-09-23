@@ -2,7 +2,7 @@ import Ember from 'ember';
 import ModelTypeMixin from 'ember-cli-formbuilder/mixins/model-type';
 
 export default Ember.Component.extend(ModelTypeMixin, {
-  classNameBindings: [':fb-field-wrapper', 'typeClass', 'isSelected:selected', 'model.wholeLine:whole-line'],
+  classNameBindings: [':form-builder-field-wrapper', 'typeClass', 'isSelected:selected', 'model.wholeLine:whole-line'],
 
   model: null,
   targetObject: null,

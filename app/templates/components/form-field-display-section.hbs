@@ -12,7 +12,7 @@
     {{#if sortPreview}}
       {{#sortable-group onChange="reorderItems" as |group|}}
         {{#each model.fields as |field|}}
-          {{#sortable-item model=field group=group handle=".fb-field-wrapper"}}
+          {{#sortable-item model=field group=group handle=".form-builder-field-wrapper"}}
             {{#if field.isSection}}
               {{form-field-display-section model=field targetObject=this}}
             {{else}}

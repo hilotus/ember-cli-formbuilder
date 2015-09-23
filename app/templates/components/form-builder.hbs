@@ -1,11 +1,11 @@
-<div class="fb-left">
-  <ul class="fb-tabs">
+<div class="form-builder-left">
+  <ul class="form-builder-tabs">
     <li class="{{if isEditFormTag 'active'}}"><a {{action 'toggleTag' 'editForm'}}>Edit form</a></li>
     <li class="{{if isAddNewFieldTag 'active'}}"><a {{action 'toggleTag' 'addNewField'}}>Add new field</a></li>
     <li class="{{if isEditFieldTag 'active'}}"><a {{action 'toggleTag' 'editField'}}>Edit field</a></li>
   </ul>
-  <div class="fb-tab-content">
-    <div class="fb-tab-pane {{if isEditFormTag 'active'}}">
+  <div class="form-builder-tab-content">
+    <div class="form-builder-tab-pane {{if isEditFormTag 'active'}}">
       <div class="form-group">
         {{input class="form-control" value=model.name}}
       </div>
@@ -14,8 +14,8 @@
       </div>
     </div>
 
-    <div class="fb-tab-pane {{if isAddNewFieldTag 'active'}}">
-      <div class="fb-add-field-types">
+    <div class="form-builder-tab-pane {{if isAddNewFieldTag 'active'}}">
+      <div class="form-builder-add-field-types">
         <div class="section">
           <a role="button" class="btn btn-default" {{action 'addField' 'text'}}><i class="fa fa-font"></i> Text</a>
           <a role="button" class="btn btn-default" {{action 'addField' 'paragraph'}}>¶ Paragraph</a>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="fb-tab-pane {{if isEditFieldTag 'active'}}">
+    <div class="form-builder-tab-pane {{if isEditFieldTag 'active'}}">
       {{#if field}}
         {{form-field-editor model=field targetObject=this}}
       {{/if}}
@@ -46,11 +46,11 @@
   </div>
 </div>
 
-<div class="fb-right form-field-collection">
+<div class="form-builder-right form-field-collection">
   {{#if sortPreview}}
     {{#sortable-group onChange="reorderItems" as |group|}}
       {{#each model.fields as |field|}}
-        {{#sortable-item model=field group=group handle=".fb-field-wrapper"}}
+        {{#sortable-item model=field group=group handle=".form-builder-field-wrapper"}}
           {{#if field.isSection}}
             {{form-field-display-section model=field targetObject=this}}
           {{else}}
@@ -70,9 +70,9 @@
   {{/if}}
 </div>
 
-<div class="fb-clear"></div>
+<div class="form-builder-clear"></div>
 
-<div class="fb-main-top-bar">
+<div class="form-builder-main-top-bar">
   <div class="form-control">
     <label>{{input type="checkbox" checked=sortPreview}} Sort Preview</label>
   </div>
