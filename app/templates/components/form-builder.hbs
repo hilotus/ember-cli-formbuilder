@@ -1,8 +1,8 @@
 <div class="form-builder-left">
   <ul class="form-builder-tabs">
-    <li class="{{if isEditFormTag 'active'}}"><a {{action 'toggleTag' 'editForm'}}>Edit form</a></li>
-    <li class="{{if isAddNewFieldTag 'active'}}"><a {{action 'toggleTag' 'addNewField'}}>Add new field</a></li>
-    <li class="{{if isEditFieldTag 'active'}}"><a {{action 'toggleTag' 'editField'}}>Edit field</a></li>
+    <li class="{{if isEditFormTag 'active'}}"><a {{action 'toggleTag' 'editForm'}}>Edit Form</a></li>
+    <li class="{{if isAddFieldTag 'active'}}"><a {{action 'toggleTag' 'addField'}}>Add Field</a></li>
+    <li class="{{if isEditFieldTag 'active'}}"><a {{action 'toggleTag' 'editField'}}>Edit Field</a></li>
   </ul>
   <div class="form-builder-tab-content">
     <div class="form-builder-tab-pane {{if isEditFormTag 'active'}}">
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="form-builder-tab-pane {{if isAddNewFieldTag 'active'}}">
+    <div class="form-builder-tab-pane {{if isAddFieldTag 'active'}}">
       <div class="form-builder-add-field-types">
         <div class="section">
           <a role="button" class="btn btn-default" {{action 'addField' 'text'}}><i class="fa fa-font"></i> Text</a>

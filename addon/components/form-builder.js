@@ -11,8 +11,8 @@ export default Ember.Component.extend({
 
   tag: 'editForm',  // left tabs
 
-  isAddNewFieldTag: Ember.computed('tag', function () {
-    return this.get('tag') === 'addNewField';
+  isAddFieldTag: Ember.computed('tag', function () {
+    return this.get('tag') === 'addField';
   }),
 
   isEditFieldTag: Ember.computed('tag', function () {
