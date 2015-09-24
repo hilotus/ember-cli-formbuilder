@@ -1,10 +1,12 @@
 import Ember from 'ember';
-import Form from 'ember-cli-formbuilder/models/form';
 
 export default Ember.Controller.extend({
   init: function () {
     this._super();
-    this.set('model', Form.create({name: 'My form', description: 'My form description', fields: []}));
+    var Form = this.container.lookupFactory('form-model:main');
+    var form = Form.create();
+    form.initFromJson({name: 'My form', description: 'My form description', fields: []});
+    this.set('model', form);
   },
 
   actions: {

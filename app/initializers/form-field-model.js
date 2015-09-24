@@ -1,3 +1,4 @@
+import Form from 'ember-cli-formbuilder/models/form';
 import TextField from 'ember-cli-formbuilder/models/fields/text-field';
 import ParagraphField from 'ember-cli-formbuilder/models/fields/paragraph-field';
 import SingleChoiceField from 'ember-cli-formbuilder/models/fields/single-choice-field';
@@ -15,6 +16,7 @@ export default {
   name: 'form-field',
 
   initialize: function(registry) {
+    registry.register('form-model:main', Form, { instantiate: false, singleton: true });
     registry.register('form-field-model:text', TextField, { instantiate: false, singleton: true });
     registry.register('form-field-model:paragraph', ParagraphField, { instantiate: false, singleton: true });
     registry.register('form-field-model:single-choice', SingleChoiceField, { instantiate: false, singleton: true });
