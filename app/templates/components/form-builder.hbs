@@ -1,8 +1,8 @@
 <div class="form-builder-left">
   <ul class="form-builder-tabs">
-    <li class="{{if isEditFormTag 'active'}}"><a {{action 'toggleTag' 'editForm'}}>Edit Form</a></li>
-    <li class="{{if isAddFieldTag 'active'}}"><a {{action 'toggleTag' 'addField'}}>Add Field</a></li>
-    <li class="{{if isEditFieldTag 'active'}}"><a {{action 'toggleTag' 'editField'}}>Edit Field</a></li>
+    <li class="{{if isEditFormTag 'active'}}"><a {{action 'toggleTag' 'editForm'}}>{{form-t 'tab.editForm'}}</a></li>
+    <li class="{{if isAddFieldTag 'active'}}"><a {{action 'toggleTag' 'addField'}}>{{form-t 'tab.addField'}}</a></li>
+    <li class="{{if isEditFieldTag 'active'}}"><a {{action 'toggleTag' 'editField'}}>{{form-t 'tab.editForm'}}</a></li>
   </ul>
   <div class="form-builder-tab-content">
     <div class="form-builder-tab-pane {{if isEditFormTag 'active'}}">
@@ -17,21 +17,21 @@
     <div class="form-builder-tab-pane {{if isAddFieldTag 'active'}}">
       <div class="form-builder-add-field-types">
         <div class="section">
-          <a role="button" class="btn btn-default" {{action 'addField' 'text'}}><i class="fa fa-font"></i> Text</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'paragraph'}}>¶ Paragraph</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'single-choice'}}><i class="fa fa-square-o"></i> Single Choice</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'multiple-choice'}}><i class="fa fa-circle-o"></i> Multiple Choice</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'date'}}><i class="fa fa-calendar"></i> Date</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'time'}}><i class="fa fa-clock-o"></i> Time</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'number'}}>123 Number</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'price'}}><i class="fa fa-money"></i> Price</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'email'}}><i class="fa fa-envelope-o"></i> Email</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'link'}}><i class="fa fa-link"></i> Link</a>
-          <a role="button" class="btn btn-default" {{action 'addField' 'label'}}><i class="fa fa-tag"></i> Label</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'text'}}><i class="fa fa-font"></i> {{form-t 'addField.text'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'paragraph'}}>¶ {{form-t 'addField.paragraph'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'single-choice'}}><i class="fa fa-square-o"></i> {{form-t 'addField.singleChoice'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'multiple-choice'}}><i class="fa fa-circle-o"></i> {{form-t 'addField.multipleChoice'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'date'}}><i class="fa fa-calendar"></i> {{form-t 'addField.date'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'time'}}><i class="fa fa-clock-o"></i> {{form-t 'addField.time'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'number'}}>123 {{form-t 'addField.number'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'price'}}><i class="fa fa-money"></i> {{form-t 'addField.price'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'email'}}><i class="fa fa-envelope-o"></i> {{form-t 'addField.email'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'link'}}><i class="fa fa-link"></i> {{form-t 'addField.link'}}</a>
+          <a role="button" class="btn btn-default" {{action 'addField' 'label'}}><i class="fa fa-tag"></i> {{form-t 'addField.label'}}</a>
         </div>
         <div class="section">
           {{#unless field.isSection}}
-            <a role="button" class="btn btn-primary" {{action 'addField' 'section'}}><i class="fa fa-minus"></i> Section</a>
+            <a role="button" class="btn btn-primary" {{action 'addField' 'section'}}><i class="fa fa-minus"></i> {{form-t 'addField.section'}}</a>
           {{/unless}}
         </div>
       </div>
@@ -74,6 +74,6 @@
 
 <div class="form-builder-main-top-bar">
   <div class="form-control">
-    <label>{{input type="checkbox" checked=sortPreview}} Sort Preview</label>
+    <label>{{input type="checkbox" checked=sortPreview}} {{form-t 'sortView'}}</label>
   </div>
 </div>

@@ -20,11 +20,12 @@ export default Ember.Component.extend(ModelTypeMixin, {
   }),
 
   title: Ember.computed('model.title', function () {
-    return this.get('model.title') || 'Title';
+    var title = !!window.I18nForm ? window.I18nForm.t('newFieldTitle') : 'Title';
+    return this.get('model.title') || title;
   }),
 
   // currency field with font awesome Icon
   currencyIcon: Ember.computed('model.selectedCurrency', function () {
-    return 'fa ' + 'fa-' + this.get('model.selectedCurrency');
+    return 'fa ' + 'fa-' + this.get('model.selectedCurrency.name');
   })
 });

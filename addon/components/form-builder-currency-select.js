@@ -10,12 +10,20 @@ export default Ember.Component.extend({
   selected: null,
 
   // price field
-  currencies: ['usd', 'cny', 'eur', 'gbp'],
+  currencies: Ember.computed(function () {
+    return [
+      { name: 'usd', value: window.I18nForm.t('currencies.usd') },
+      { name: 'cny', value: window.I18nForm.t('currencies.cny') },
+      { name: 'eur', value: window.I18nForm.t('currencies.eur') }
+    ];
+  }),
 
   setup: function () {
     Ember.run.schedule('afterRender', this, function () {
       this.$().on('change', function (event) {
-        this.set('selected', event.target.value);
+        this.set('selected', this.get('currencies').filter(
+          function (currency) { return currency.name === event.target.value; }.bind(this)
+        )[0]);
       }.bind(this));
     });
   }.on('didInsertElement')

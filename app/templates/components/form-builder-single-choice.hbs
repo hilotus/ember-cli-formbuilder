@@ -3,4 +3,4 @@
     <input type="checkbox" checked={{option.checked}} {{action 'onCheck' option on='change'}}> {{input value=option.label}} <i class="fa fa-minus-circle del" {{action 'delOpt' option}}></i>
   </div>
 {{/each}}
-<a class="btn btn-success" {{action 'addOption'}}>Add option</a>
+<a class="btn btn-success" {{action 'addOption'}}>{{form-t 'editField.props.choice.addOption'}}</a>

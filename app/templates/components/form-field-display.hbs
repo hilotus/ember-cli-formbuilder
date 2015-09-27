@@ -8,9 +8,9 @@
   {{else if isLink}}
     {{input placeholder="http://"}}
   {{else if isEmail}}
-    {{input type="email" placeholder="Email"}}
+    {{input type="email" placeholder=(form-t 'field.email')}}
   {{else if isNumber}}
-    {{input placeholder="Number"}}
+    {{input placeholder=(form-t 'field.number')}}
   {{else if isPrice}}
     <div class="input-group">
       <div class="input-group-addon"><i class="{{currencyIcon}}"></i></div>
@@ -29,9 +29,9 @@
       </div>
     {{/each}}
   {{else if isDate}}
-    {{input type="text" placeholder="Date" value=model.defaultValue}}
+    {{input type="text" placeholder=(form-t 'field.date') value=model.defaultValue}}
   {{else if isTime}}
-    {{input type="text" placeholder="Time" value=model.defaultValue}}
+    {{input type="text" placeholder=(form-t 'field.time') value=model.defaultValue}}
   {{/if}}
   <div class="actions-wrapper">
     <i role="button" class="fa fa-minus-circle del" {{action 'delete' model target=targetObject}}></i>

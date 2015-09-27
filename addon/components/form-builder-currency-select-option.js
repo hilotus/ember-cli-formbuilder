@@ -5,13 +5,12 @@ export default Ember.Component.extend({
   attributeBindings: ['value', 'isSelected:selected'],
 
   selected: null,
-
-  // option text
-  displayValue: null,
   // option value
+  // {name: 'usd', value: 'usd'}
+  displayValue: null,
   value: null,
 
   isSelected: Ember.computed('selected', 'value', function () {
-    return this.get('selected') && this.get('selected') === this.get('value');
+    return this.get('selected') && this.get('selected.name') === this.get('value');
   })
 });

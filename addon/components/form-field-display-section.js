@@ -13,7 +13,8 @@ export default Ember.Component.extend({
   }),
 
   title: Ember.computed('model.title', function () {
-    return this.get('model.title') || 'Title';
+    var title = !!window.I18nForm ? window.I18nForm.t('newFieldTitle') : 'Title';
+    return this.get('model.title') || title;
   }),
 
   actions: {

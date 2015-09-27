@@ -1,56 +1,56 @@
 <div class="form-builder-field-label">
-  <code class="field-name">{{model.name}}</code>
-  <code class="field-type">{{model.type}}</code>
+  <code class="field-name" data-field="{{form-t 'editField.fieldName'}}"> {{model.name}}</code>
+  <code class="field-type" data-field="{{form-t 'editField.fieldType'}}"> {{model.type}}</code>
 </div>
 
-<div class="form-builder-edit-section-header">Label</div>
+<div class="form-builder-edit-section-header">{{form-t 'editField.props.label'}}</div>
 <div class="form-group">
-  {{input class="form-control" value=model.title placeholder='Title'}}
+  {{input class="form-control" value=model.title placeholder=(form-t 'editField.props.title')}}
 </div>
 <div class="form-group">
-  {{textarea class="form-control" value=model.description placeholder='Description'}}
+  {{textarea class="form-control" value=model.description placeholder=(form-t 'editField.props.desp')}}
 </div>
 {{#unless isSection}}
   <div class="form-group">
-    {{input id="form-builder-required" type="checkbox" checked=model.required}} <label for="form-builder-required">Required</label>
+    {{input id="form-builder-required" type="checkbox" checked=model.required}} <label for="form-builder-required">{{form-t 'editField.props.required'}}</label>
   </div>
   <div class="form-group">
-    {{input id="form-builder-wholeLine" type="checkbox" checked=model.wholeLine}} <label for="form-builder-wholeLine">Whole line</label>
+    {{input id="form-builder-wholeLine" type="checkbox" checked=model.wholeLine}} <label for="form-builder-wholeLine">{{form-t 'editField.props.wholeLine'}}</label>
   </div>
 {{/unless}}
 
 {{#if isText}}
-  <div class="form-builder-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">{{form-t 'editField.props.defaultValue'}}</div>
   <div class="form-group">
     {{input class="form-control" value=model.defaultValue}}
   </div>
 {{else if isParagraph}}
-  <div class="form-builder-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">{{form-t 'editField.props.defaultValue'}}</div>
   <div class="form-group">
     {{textarea class="form-control" value=model.defaultValue}}
   </div>
 {{else if isPrice}}
-  <div class="form-builder-edit-section-header">Currency</div>
+  <div class="form-builder-edit-section-header">{{form-t 'editField.props.currency'}}</div>
   <div class="form-group">
     {{form-builder-currency-select class="form-control" model=currencies selected=model.selectedCurrency}}
   </div>
 {{else if isSingleChoice}}
-  <div class="form-builder-edit-section-header">Options</div>
+  <div class="form-builder-edit-section-header">{{form-t 'editField.ops'}}</div>
   <div class="form-group">
     {{form-builder-single-choice model=model.options}}
   </div>
 {{else if isMultipleChoice}}
-  <div class="form-builder-edit-section-header">Options</div>
+  <div class="form-builder-edit-section-header">{{form-t 'editField.ops'}}</div>
   <div class="form-group">
     {{form-builder-multiple-choice model=model.options}}
   </div>
 {{else if isDate}}
-  <div class="form-builder-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">{{form-t 'editField.props.defaultValue'}}</div>
   <div class="form-group">
     {{date-picker model=model.defaultValue buttonClass="btn btn-success" format="yyyy-mm-dd"}}
   </div>
 {{else if isTime}}
-  <div class="form-builder-edit-section-header">Default Value</div>
+  <div class="form-builder-edit-section-header">{{form-t 'editField.props.defaultValue'}}</div>
   <div class="form-group">
     {{time-picker model=model.defaultValue class="form-control"}}
   </div>
